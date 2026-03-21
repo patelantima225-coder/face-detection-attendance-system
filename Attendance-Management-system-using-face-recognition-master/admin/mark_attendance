@@ -1,0 +1,323 @@
+import json, os, datetime
+
+ATTENDANCE_FILE = "attendance.json"
+
+def load_json(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, "r") as f:
+            return json.load(f)
+    return {}
+
+def save_json(file_path, data):
+    with open(file_path, "w") as f:
+        json.dump(data, f, indent=4)
+
+def mark_attendance(email, subject="General"):
+    records = load_json(ATTENDANCE_FILE)
+
+    now = datetime.datetime.now()
+    entry = {
+        "date": now.strftime("%Y-%m-%d"),
+        "time": now.strftime("%H:%M:%S"),
+        "subject": subject,
+        "status": "Present"
+    }
+
+    if email not in records:
+        records[email] = []
+    records[email].append(entry)
+
+    save_json(ATTENDANCE_FILE, records)
+    print(f"✅ Attendance marked for {email} ({subject})")
+# admin/admin_dashboard.py
+import tkinter as tk
+from tkinter import ttk, messagebox
+import json, os
+from datetime import datetime, timedelta
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
+USER_DB_FILE = os.path.join(ROOT, "users.json")
+
+
+def load_users():
+    if not os.path.exists(USER_DB_FILE):
+        return {}
+    with open(USER_DB_FILE, "r") as f:
+        return json.load(f)
+
+
+def save_users(data):
+    with open(USER_DB_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+
+def open_dashboard(admin_email):
+    data = load_users()
+
+    # -------- Window --------
+    dash = tk.Tk()
+    dash.title("Admin Dashboard")
+    dash.geometry("950x600")
+    dash.configure(bg="#1e272e")
+
+    # -------- Title --------
+    tk.Label(
+        dash, text=f"Welcome {admin_email}", font=("Arial", 16, "bold"),
+        bg="#1e272e", fg="white"
+    ).pack(pady=10)
+
+    # -------- Search Section --------
+    search_frame = tk.Frame(dash, bg="#1e272e")
+    search_frame.pack(pady=10)
+
+    tk.Label(search_frame, text="Search by User Email:", bg="#1e272e", fg="white").grid(row=0, column=0, padx=5)
+    search_entry = tk.Entry(search_frame, width=30)
+    search_entry.grid(row=0, column=1, padx=5)
+
+    tk.Label(search_frame, text="Last N days:", bg="#1e272e", fg="white").grid(row=0, column=2, padx=5)
+    days_entry = tk.Entry(search_frame, width=10)
+    days_entry.grid(row=0, column=3, padx=5)
+
+    # -------- Attendance Table --------
+    columns = ("email", "name", "date", "time", "subject", "status")
+    tree = ttk.Treeview(dash, columns=columns, show="headings", height=18)
+    tree.pack(pady=20, fill="both", expand=True)
+
+    for col in columns:
+        tree.heading(col, text=col.capitalize())
+        tree.column(col, width=140, anchor="center")
+
+    # -------- Populate Table --------
+    def update_table(records=None, email_filter=""):
+        for row in tree.get_children():
+            tree.delete(row)
+
+        if records is None:  # show all users attendance
+            for email, user in data.items():
+                if isinstance(user, dict) and "attendance" in user:
+                    for att in user["attendance"]:
+                        tree.insert("", "end", values=(
+                            email,
+                            user.get("name", ""),
+                            att.get("date", ""),
+                            att.get("time", ""),
+                            att.get("subject", ""),
+                            att.get("status", "Present")
+                        ))
+        else:  # show filtered records
+            for att in records:
+                tree.insert("", "end", values=(
+                    email_filter,
+                    data[email_filter].get("name", ""),
+                    att.get("date", ""),
+                    att.get("time", ""),
+                    att.get("subject", ""),
+                    att.get("status", "Present")
+                ))
+
+    update_table()
+
+    # -------- Search Function --------
+    def search_attendance():
+        email = search_entry.get().strip()
+        n_days = days_entry.get().strip()
+        records = []
+
+        if email and email in data:
+            records = data[email].get("attendance", [])
+        elif email:
+            messagebox.showerror("Error", "User not found in users.json")
+            return
+
+        # Filter by last N days
+        if n_days.isdigit():
+            cutoff = datetime.now() - timedelta(days=int(n_days))
+            new_records = []
+            for r in records:
+                try:
+                    dt = datetime.strptime(r.get("date", "") + " " + r.get("time", ""), "%Y-%m-%d %H:%M:%S")
+                    if dt >= cutoff:
+                        new_records.append(r)
+                except:
+                    pass
+            records = new_records
+
+        update_table(records, email_filter=email)
+
+    tk.Button(search_frame, text="Search Attendance", command=search_attendance,
+              bg="#0984e3", fg="white", font=("Arial", 10, "bold")).grid(row=0, column=4, padx=10)
+
+    # -------- Mark Attendance --------
+    def mark_attendance():
+        email = search_entry.get().strip()
+        if email not in data:
+            messagebox.showerror("Error", "Enter a valid user email to mark attendance")
+            return
+        timestamp = datetime.now()
+        record = {
+            "date": timestamp.strftime("%Y-%m-%d"),
+            "time": timestamp.strftime("%H:%M:%S"),
+            "subject": "General",
+            "status": "Present"
+        }
+        data[email].setdefault("attendance", []).append(record)
+        save_users(data)
+        update_table(data[email]["attendance"], email_filter=email)
+        messagebox.showinfo("Success", f"Attendance marked for {email}")
+
+    tk.Button(dash, text="Mark Attendance", command=mark_attendance,
+              bg="#27ae60", fg="white", font=("Arial", 10, "bold")).pack(pady=10)
+
+    dash.mainloop()
+
+
+# ✅ Allow direct run also
+if __name__ == "__main__":
+    open_dashboard("admin@gmail.com")
+# admin/admin_dashboard.py
+import tkinter as tk
+from tkinter import ttk, messagebox
+import json, os
+from datetime import datetime, timedelta
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
+USER_DB_FILE = os.path.join(ROOT, "users.json")
+
+
+def load_users():
+    if not os.path.exists(USER_DB_FILE):
+        return {}
+    with open(USER_DB_FILE, "r") as f:
+        return json.load(f)
+
+
+def save_users(data):
+    with open(USER_DB_FILE, "w") as f:
+        json.dump(data, f, indent=4)
+
+
+def open_dashboard(admin_email):
+    data = load_users()
+
+    # -------- Window --------
+    dash = tk.Tk()
+    dash.title("Admin Dashboard")
+    dash.geometry("950x600")
+    dash.configure(bg="#1e272e")
+
+    # -------- Title --------
+    tk.Label(
+        dash, text=f"Welcome {admin_email}", font=("Arial", 16, "bold"),
+        bg="#1e272e", fg="white"
+    ).pack(pady=10)
+
+    # -------- Search Section --------
+    search_frame = tk.Frame(dash, bg="#1e272e")
+    search_frame.pack(pady=10)
+
+    tk.Label(search_frame, text="Search by User Email:", bg="#1e272e", fg="white").grid(row=0, column=0, padx=5)
+    search_entry = tk.Entry(search_frame, width=30)
+    search_entry.grid(row=0, column=1, padx=5)
+
+    tk.Label(search_frame, text="Last N days:", bg="#1e272e", fg="white").grid(row=0, column=2, padx=5)
+    days_entry = tk.Entry(search_frame, width=10)
+    days_entry.grid(row=0, column=3, padx=5)
+
+    # -------- Attendance Table --------
+    columns = ("email", "name", "date", "time", "subject", "status")
+    tree = ttk.Treeview(dash, columns=columns, show="headings", height=18)
+    tree.pack(pady=20, fill="both", expand=True)
+
+    for col in columns:
+        tree.heading(col, text=col.capitalize())
+        tree.column(col, width=140, anchor="center")
+
+    # -------- Populate Table --------
+    def update_table(records=None, email_filter=""):
+        for row in tree.get_children():
+            tree.delete(row)
+
+        if records is None:  # show all users attendance
+            for email, user in data.items():
+                if isinstance(user, dict) and "attendance" in user:
+                    for att in user["attendance"]:
+                        tree.insert("", "end", values=(
+                            email,
+                            user.get("name", ""),
+                            att.get("date", ""),
+                            att.get("time", ""),
+                            att.get("subject", ""),
+                            att.get("status", "Present")
+                        ))
+        else:  # show filtered records
+            for att in records:
+                tree.insert("", "end", values=(
+                    email_filter,
+                    data[email_filter].get("name", ""),
+                    att.get("date", ""),
+                    att.get("time", ""),
+                    att.get("subject", ""),
+                    att.get("status", "Present")
+                ))
+
+    update_table()
+
+    # -------- Search Function --------
+    def search_attendance():
+        email = search_entry.get().strip()
+        n_days = days_entry.get().strip()
+        records = []
+
+        if email and email in data:
+            records = data[email].get("attendance", [])
+        elif email:
+            messagebox.showerror("Error", "User not found in users.json")
+            return
+
+        # Filter by last N days
+        if n_days.isdigit():
+            cutoff = datetime.now() - timedelta(days=int(n_days))
+            new_records = []
+            for r in records:
+                try:
+                    dt = datetime.strptime(r.get("date", "") + " " + r.get("time", ""), "%Y-%m-%d %H:%M:%S")
+                    if dt >= cutoff:
+                        new_records.append(r)
+                except:
+                    pass
+            records = new_records
+
+        update_table(records, email_filter=email)
+
+    tk.Button(search_frame, text="Search Attendance", command=search_attendance,
+              bg="#0984e3", fg="white", font=("Arial", 10, "bold")).grid(row=0, column=4, padx=10)
+
+    # -------- Mark Attendance --------
+    def mark_attendance():
+        email = search_entry.get().strip()
+        if email not in data:
+            messagebox.showerror("Error", "Enter a valid user email to mark attendance")
+            return
+        timestamp = datetime.now()
+        record = {
+            "date": timestamp.strftime("%Y-%m-%d"),
+            "time": timestamp.strftime("%H:%M:%S"),
+            "subject": "General",
+            "status": "Present"
+        }
+        data[email].setdefault("attendance", []).append(record)
+        save_users(data)
+        update_table(data[email]["attendance"], email_filter=email)
+        messagebox.showinfo("Success", f"Attendance marked for {email}")
+
+    tk.Button(dash, text="Mark Attendance", command=mark_attendance,
+              bg="#27ae60", fg="white", font=("Arial", 10, "bold")).pack(pady=10)
+
+    dash.mainloop()
+
+
+# ✅ Allow direct run also
+if __name__ == "__main__":
+    open_dashboard("admin@gmail.com")

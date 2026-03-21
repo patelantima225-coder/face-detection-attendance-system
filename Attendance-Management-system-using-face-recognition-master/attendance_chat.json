@@ -1,0 +1,60 @@
+[
+    {
+        "sender": "user",
+        "message": "hekko"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    },
+    {
+        "sender": "user",
+        "message": "attendance not showing"
+    },
+    {
+        "sender": "bot",
+        "message": "Sure! Tell me your email so I can mark your attendance."
+    },
+    {
+        "sender": "user",
+        "message": "antima@321"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    },
+    {
+        "sender": "user",
+        "message": "hello"
+    },
+    {
+        "sender": "bot",
+        "message": "Hello! Please enter your email to mark attendance."
+    },
+    {
+        "sender": "user",
+        "message": "antima@321"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    },
+    {
+        "sender": "user",
+        "message": "hello antima"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    },
+    {
+        "sender": "user",
+        "message": "antima record show",
+        "time": "2025-09-15T14:11:23.710465"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly (type your email to mark attendance).",
+        "time": "2025-09-15T14:11:23.711942"
+    }
+]

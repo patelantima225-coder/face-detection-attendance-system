@@ -1,0 +1,132 @@
+{
+    "ajdon@gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "15:05:32",
+            "subject": "maths",
+            "status": "Present"
+        }
+    ],
+    "admin@321": [
+        {
+            "date": "2025-09-14",
+            "time": "15:07:15",
+            "subject": "opps",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-14",
+            "time": "23:32:34",
+            "subject": "science",
+            "status": "Present"
+        }
+    ],
+    "ritu23@gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "15:08:13",
+            "subject": "maths",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-14",
+            "time": "23:59:36",
+            "subject": "opps",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-15",
+            "time": "00:00:02",
+            "subject": "hindi",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-15",
+            "time": "00:00:31",
+            "subject": "opps",
+            "status": "Present"
+        }
+    ],
+    "sampurna321@gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "15:08:58",
+            "subject": "english",
+            "status": "Present"
+        }
+    ],
+    "bittu23@gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "15:10:06",
+            "subject": "hindi",
+            "status": "Present"
+        }
+    ],
+    "sona@321gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "23:13:02",
+            "subject": "maths",
+            "status": "Present"
+        }
+    ],
+    "sampurna@321gmail.com": [
+        {
+            "date": "2025-09-14",
+            "time": "23:55:23",
+            "subject": "General",
+            "status": "Present"
+        }
+    ],
+    "sampurna@321gail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "00:51:31",
+            "subject": "hindi",
+            "status": "Present"
+        }
+    ],
+    "cuttie45@gmail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "10:53:04",
+            "subject": "General",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-15",
+            "time": "10:55:07",
+            "subject": "General",
+            "status": "Present"
+        }
+    ],
+    "pikku56@gmail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "11:11:02",
+            "subject": "geography",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-15",
+            "time": "11:15:47",
+            "subject": "General",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-15",
+            "time": "11:17:19",
+            "subject": "geography",
+            "status": "Present"
+        }
+    ],
+    "antima134@gmail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "22:55:42",
+            "subject": "maths",
+            "status": "Present"
+        }
+    ]
+}

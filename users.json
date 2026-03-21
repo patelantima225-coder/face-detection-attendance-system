@@ -1,0 +1,223 @@
+{
+    "sampurna321@gmail.com": {
+        "name": "sampurna mam",
+        "email": "sampurna321@gmail.com",
+        "contact": "+911234567890",
+        "password": "123",
+        "attendance": [
+            {
+                "date": "2025-09-17",
+                "time": "08:10:00",
+                "subject": "General",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-16",
+                "time": "08:12:00",
+                "subject": "General",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-14",
+                "time": "23:47:54",
+                "subject": "General",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-14",
+                "time": "23:48:02",
+                "subject": "General",
+                "status": "Present"
+            }
+        ]
+    },
+    "aj06@gmail.com": {
+        "name": "aj",
+        "email": "aj06@gmail.com",
+        "contact": "+911234567890",
+        "password": "234",
+        "role": "user",
+        "registered_at": "2025-09-14 00:09:17",
+        "attendance": [
+            {
+                "date": "2025-09-17",
+                "time": "08:15:00",
+                "subject": "General",
+                "status": "Late"
+            },
+            {
+                "date": "2025-09-14",
+                "time": "23:45:39",
+                "subject": "General",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-14",
+                "time": "23:45:49",
+                "subject": "General",
+                "status": "Present"
+            }
+        ]
+    },
+    "ritu23@gmail.com": {
+        "name": "ritu patel",
+        "email": "ritu23@gmail.com",
+        "contact": "+911111111111",
+        "password": "123",
+        "attendance": [
+            {
+                "date": "2025-09-15",
+                "time": "09:45:00",
+                "subject": "Python",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-16",
+                "time": "10:20:00",
+                "subject": "AI",
+                "status": "Present"
+            },
+            {
+                "date": "2025-09-17",
+                "time": "09:00:33",
+                "subject": "os",
+                "status": "Present"
+            }
+        ]
+    },
+    "antima225@gmail.com": {
+        "name": "Admin",
+        "email": "antima225@gmail.com",
+        "contact": "+911234567890",
+        "password": "admin123",
+        "role": "admin",
+        "registered_at": "2025-09-15 00:00:00",
+        "attendance": []
+    },
+    "bittu23@gmail.com": {
+        "name": "bittu",
+        "email": "bittu23@gmail.com",
+        "contact": "+911234567890",
+        "password": "09876",
+        "role": "admin",
+        "attendance": []
+    },
+    "sona@321gmail.com": {
+        "name": "sonaaaa patel",
+        "email": "sona@321gmail.com",
+        "contact": "+911234567890",
+        "password": "1212",
+        "attendance": []
+    },
+    "ajdon@gmail.com": {
+        "name": "ajajan",
+        "email": "ajdon@gmail.com",
+        "contact": "+916936258514",
+        "password": "123",
+        "attendance": [
+            {
+                "date": "2025-09-15",
+                "time": "11:00:00",
+                "subject": "Maths",
+                "status": "Present"
+            }
+        ]
+    },
+    "anita@11gmail.com": {
+        "name": "anita_patel",
+        "email": "anita@11gmail.com",
+        "contact": "+911234567890",
+        "password": "321",
+        "attendance": []
+    },
+    "basanti34@gmail.com": {
+        "name": "basanti",
+        "email": "basanti34@gmail.com",
+        "contact": "+911234567890",
+        "password": "6767",
+        "role": "user",
+        "registered_at": "2025-09-13 23:44:59",
+        "attendance": []
+    },
+    "patel.antima@225gmail.com": {
+        "name": "antima patel",
+        "email": "patel.antima@225gmail.com",
+        "contact": "+912323232323",
+        "password": "123",
+        "role": "user",
+        "registered_at": "2025-09-15 11:05:48",
+        "attendance": []
+    },
+    "riya@45gmail.com": {
+        "name": "riya",
+        "email": "riya@45gmail.com",
+        "contact": "+911234567890",
+        "password": "123",
+        "role": "user",
+        "registered_at": "2025-09-15 11:47:49",
+        "attendance": []
+    },
+    "riyu24@gmil.com": {
+        "name": "riyu",
+        "email": "riyu24@gmil.com",
+        "contact": "+911234567890",
+        "password": "123",
+        "role": "user",
+        "registered_at": "2025-09-15 11:55:34",
+        "attendance": []
+    },
+    "siya67@gmil.com": {
+        "name": "siya",
+        "email": "siya67@gmil.com",
+        "contact": "+911234567890",
+        "password": "098",
+        "role": "user",
+        "registered_at": "2025-09-15 11:56:15",
+        "attendance": []
+    },
+    "ripo@45gmil.com": {
+        "name": "ripo",
+        "email": "ripo@45gmil.com",
+        "contact": "+911234567890",
+        "password": "123",
+        "role": "user",
+        "registered_at": "2025-09-15 11:58:53",
+        "attendance": []
+    },
+    "jiya23@gmail.com": {
+        "name": "jiya",
+        "email": "jiya23@gmail.com",
+        "contact": "+911234567890",
+        "password": "890",
+        "role": "user",
+        "registered_at": "2025-09-16 19:35:10",
+        "attendance": []
+    },
+    "anuuu34@gmil.com": {
+        "name": "sdfgv",
+        "email": "anuuu34@gmil.com",
+        "contact": "+911234567890",
+        "password": "0987",
+        "role": "user",
+        "registered_at": "2025-09-15 22:54:03",
+        "attendance": []
+    },
+    "piya12@gmail.com": {
+        "name": "piya",
+        "email": "piya12@gmail.com",
+        "contact": "+911234567890",
+        "password": "12345",
+        "role": "user",
+        "registered_at": "2025-09-16 20:45:04",
+        "attendance": []
+    },
+    "radhika12@gmail.com": {
+        "name": "radhika",
+        "email": "radhika12@gmail.com",
+        "contact": "+911234567890",
+        "password": "321",
+        "role": "user",
+        "registered_at": "2026-03-21 18:18:27",
+        "attendance": []
+    }
+}

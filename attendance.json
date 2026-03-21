@@ -1,0 +1,74 @@
+{
+    "ritu23@gmail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "09:45:00",
+            "subject": "Python",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-16",
+            "time": "10:20:00",
+            "subject": "AI",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-17",
+            "time": "09:00:33",
+            "subject": "os",
+            "status": "Present"
+        }
+    ],
+    "ajdon@gmail.com": [
+        {
+            "date": "2025-09-15",
+            "time": "11:00:00",
+            "subject": "Maths",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-17",
+            "time": "11:44:10",
+            "subject": "maths",
+            "status": "Present"
+        }
+    ],
+    "sampurna321@gmail.com": [
+        {
+            "date": "2025-09-16",
+            "time": "08:12:00",
+            "subject": "General",
+            "status": "Present"
+        },
+        {
+            "date": "2025-09-17",
+            "time": "08:10:00",
+            "subject": "General",
+            "status": "Present"
+        }
+    ],
+    "aj06@gmail.com": [
+        {
+            "date": "2025-09-17",
+            "time": "08:15:00",
+            "subject": "General",
+            "status": "Late"
+        }
+    ],
+    "riya@45gmail.com": [
+        {
+            "date": "2025-09-17",
+            "time": "11:46:12",
+            "subject": "General",
+            "status": "Present"
+        }
+    ],
+    "sona@321gmail.com": [
+        {
+            "date": "2026-03-21",
+            "time": "22:37:56",
+            "subject": "os",
+            "status": "Present"
+        }
+    ]
+}

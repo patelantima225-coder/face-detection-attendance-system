@@ -1,0 +1,18 @@
+[
+    {
+        "sender": "user",
+        "message": "hiii"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    },
+    {
+        "sender": "user",
+        "message": "how are you"
+    },
+    {
+        "sender": "bot",
+        "message": "I'm here to help with attendance. Please ask clearly."
+    }
+]
